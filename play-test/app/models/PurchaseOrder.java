@@ -12,14 +12,14 @@ import play.db.ebean.Model;
 @Entity
 public class PurchaseOrder extends Model {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	@Id
 	public Long orderNumber;
 	
 	@Required
 	@ManyToOne
-	Customer customer;
+	public Customer customer;
 	
 	@Required
 	public Date orderDate;

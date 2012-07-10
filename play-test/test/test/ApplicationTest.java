@@ -8,6 +8,8 @@ import java.util.Map;
 import org.codehaus.jackson.JsonNode;
 import org.junit.*;
 
+import controllers.routes;
+
 import play.mvc.*;
 import play.test.*;
 import play.data.DynamicForm;
@@ -41,6 +43,11 @@ public class ApplicationTest {
 //        assertThat(contentType(html)).isEqualTo("text/html");
 //        assertThat(contentAsString(html)).contains("Your new application is ready.");
     }
+    
+//    @Test
+//    public void customerAsXml() {
+//    	String xml = routes.Application.showCustomerAsFormat(1, "xml");
+//    }
   
    
 }

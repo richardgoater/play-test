@@ -15,4 +15,11 @@
 		<nature>org.scala-ide.sdt.core.scalanature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>main</name>
+			<type>2</type>
+			<location>/home/richard/git/play-test/play-test/target/scala-2.9.1/src_managed/main</location>
+		</link>
+	</linkedResources>
 </projectDescription>

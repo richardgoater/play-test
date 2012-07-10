@@ -10,6 +10,7 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Customers
 GET		/customers					controllers.Application.allCustomers()
+GET		/customers/:id.:format		controllers.Application.showCustomerAsFormat(id: Long, format: String)
 GET		/customers/:id				controllers.Application.showCustomer(id: Long)
 POST	/customers					controllers.Application.newCustomer()
 DELETE	/customers/:id				controllers.Application.deleteCustomer(id: Long)

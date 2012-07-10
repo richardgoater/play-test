@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="app"/>
+	<classpathentry kind="src" path="main"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="lib" path="/home/richard/.sbt/boot/scala-2.9.1/lib/scala-library.jar"/>
 	<classpathentry kind="lib" path="/home/richard/.ivy2/cache/play/play_2.9.1/jars/play_2.9.1-2.0.1.jar"/>
@@ -90,6 +91,6 @@
 	<classpathentry kind="lib" path="/home/richard/.ivy2/cache/org.easytesting/fest-assert/jars/fest-assert-1.4.jar"/>
 	<classpathentry kind="lib" path="/home/richard/.ivy2/cache/org.easytesting/fest-util/jars/fest-util-1.1.6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/richard/Programming/eclipse/workspace/play-test/target/scala-2.9.1/classes_managed"/>
+	<classpathentry kind="lib" path="target/scala-2.9.1/classes_managed"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
