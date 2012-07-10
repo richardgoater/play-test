@@ -1,0 +1,54 @@
+@(customer: Customer, orderForm: Form[PurchaseOrder])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(fieldConstructor.render) }
+
+@h5bp(customer.name) {
+    <h1>@customer.name</h1>
+    <h3>@customer.address1</h3>
+    <h3>@customer.orders.size() orders(s)</h3>
+    
+    <table class="table table-bordered table-striped">
+    	<thead>
+    		<tr>
+    			<th>Order Number</th><th>Order Date</th><th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+			@for(order <- customer.orders) {
+	            <tr>
+	            	<td>@order.orderNumber</td>
+	                <td>@order.orderDate</td>
+	                <!-- 
+	                <td>		                
+		                <button class="btn btn-danger" onclick="deleteCustomer(@customer.id)">Delete</button>
+	                </td>
+	                 -->
+	            </tr>
+	        }
+        </tbody>
+    </table>
+    
+    @form(routes.Application.newOrder(customer.id), 'class -> "well") {
+        <h2>Add a new Order</h2>
+        
+        @inputText(orderForm("orderNumber"))
+        @inputDate(orderForm("orderDate")) 
+        
+        <input class="btn btn-success" type="submit" value="Create">
+        
+    }
+    
+    <script>
+    	function deleteCustomer(id) {
+    		$.ajax({
+    			url: "customers/" + id,
+    			type: "DELETE"
+    		}).done(function(resp) {
+    			$('body').html(resp);
+    		});
+    	}
+    </script>
+    
+}

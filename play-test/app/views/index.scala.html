@@ -1,0 +1,54 @@
+@(customers: List[Customer], customerForm: Form[Customer])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(fieldConstructor.render) }
+
+@h5bp("Customer List") {
+    
+    <h1>@customers.size() customer(s)</h1>
+    
+    <table class="table table-bordered table-striped">
+    	<thead>
+    		<tr>
+    			<th>Name</th><th>Address 1</th><th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+			@for(customer <- customers) {
+	            <tr>
+	            	<td>@customer.name</td>
+	                <td>@customer.address1</td>
+	                <td>
+	                	<a class="btn btn-primary" href="@routes.Application.showCustomer(customer.id)">Show</a>
+	                </td>
+	                <td>		                
+		                <button class="btn btn-danger" onclick="deleteCustomer(@customer.id)">Delete</button>
+	                </td>
+	            </tr>
+	        }
+        </tbody>
+    </table>
+    
+    @form(routes.Application.newCustomer(), 'class -> "well") {
+        <h2>Add a new customer</h2>
+        
+        @inputText(customerForm("name"))
+        @inputText(customerForm("address1")) 
+        
+        <input class="btn btn-success" type="submit" value="Create">
+        
+    }
+    
+    <script>
+    	function deleteCustomer(id) {
+    		$.ajax({
+    			url: "customers/" + id,
+    			type: "DELETE"
+    		}).done(function(resp) {
+    			$('body').html(resp);
+    		});
+    	}
+    </script>
+    
+}
